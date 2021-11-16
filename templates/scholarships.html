@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+ {% csrf_token %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>scholarship_name</th>
+		<th>scholarship_url</th>
+		<th>university</th>
+          <th>program</th>
+        <th>deadline</th>
+        <th>country</th>
+        <th>scholarship_Start_date</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for scholars in data %}
+      <tr>
+        <td>{{scholars.scholarship_name}}</td>
+        <td>{{scholars.scholarship_url}}</td>
+		<td>{{scholars.scholarship_university}}</td>
+		<td>{{scholars.scholarship_program}}</td>
+      <td>{{scholars.scholarship_deadline}}</td>
+      <td>{{scholars.scholarship_country}}</td>
+      <td>{{scholars.scholarship_Start_date}}</td>
+
+      </tr>
+	  {% endfor %}
+  </tbody>
+</table>
+</form>
+</body>
+</html>
