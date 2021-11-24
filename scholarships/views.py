@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Scholarships
+from django.core.paginator import Paginator, EmptyPage
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def home(request):
 def registerPage(request):
     form = CreateUserForm()
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
     else:
         if request.method == 'POST':
             form = CreateUserForm(request.POST)
@@ -30,7 +31,7 @@ def registerPage(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -38,7 +39,7 @@ def loginPage(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('index')
             else:
                 messages.info(request, 'username OR password is incorrect')
         context = {}
@@ -47,12 +48,15 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 def showData(request):
     data = Scholarships.objects.all()
-    return render(request, 'scholarships.html', {'data': data})
+    p = Paginator(data, 15)
+    page_number = request.GET.get('page', 1)
+    obj = p.get_page(page_number)
+    return render(request, 'scholarships.html', {'data': obj})
 
 
 @login_required(login_url='login')
