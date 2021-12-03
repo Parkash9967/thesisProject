@@ -4,10 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Scholarships
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator
 
-
-# Create your views here.
 
 def home(request):
     return render(request, 'index.html')
