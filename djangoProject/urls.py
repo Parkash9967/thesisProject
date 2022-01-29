@@ -18,7 +18,7 @@ from django.urls import path, include
 from scholarships import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('scholarships/', include('scholarships.urls')),
 ]

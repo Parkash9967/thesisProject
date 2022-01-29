@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+ {% block body %}
+     <div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#2f8eb6 ; overflow: auto">
+     <div >
+<img style="height: 500px; width: 100%" src="/static/img/services%20(1).jpg" alt="">
+<h1 style="text-align: center">Our Services</h1>
+     </div>
+<div class="jumbotron top-space">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class=""><h4><i class="fa fa-cogs fa-5"></i> Bachelors Degree</h4></div>
+					<div class="h-body text-center">
+                        <img style="width: 300px; height: 300px" src="/static/img/B2B_Color-01.png" alt="">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur. Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor quam iusto assumenda hic reprehenderit?</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Master Degree</h4></div>
+					<div class="h-body text-center">
+                        <img style="width: 300px; height: 300px" src="/static/img/master.jpg" alt="">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam quibusdam rerum repellendus laboriosam reprehenderit! </p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>PHD Degree</h4></div>
+					<div class="h-body text-center">
+                        <img style="width: 300px; height: 300px" src="/static/img/phd-degree_647_032117111721.jpg" alt="">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis, perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum reprehenderit dolorem dicta nesciunt corporis?</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Countries</h4></div>
+					<div class="h-body text-center">
+                        <img style="width: 300px; height: 300px" src="/static/img/countries-design-sketch-name.png" alt="">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio sequi atque temporibus facere corporis eos expedita? </p>
+					</div>
+				</div>
+			</div> <!-- /row  -->
+
+		</div>
+	</div>
+
+     </div>
+
+ {% endblock %}
+
+{% block footer %}
+<div style="border: 2px solid gray;" class="footer-basic">
+ <footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+<ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Contact Us</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+  <!-- Copyright -->
+   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+    </div>
+{% endblock %}
+

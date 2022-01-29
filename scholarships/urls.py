@@ -2,11 +2,17 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.index, name='index'),
     path('register/', views.registerPage, name='register'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
-    path('showData/', views.showData, name='scholarships'),
-    path('index/', views.index, name='index')
+    path('list/', views.list, name='scholarships'),
+    path('home/', views.home, name='home'),
+    path('search/', views.search, name='search'),
+    path('top10/', views.top10, name='top10'),
+    path('bachelor/', views.bachelor, name='bachelor'),
+    path('master/', views.master, name='master'),
+    path('phd/', views.phd, name='phd'),
+    path('services/', views.services, name='services')
 
 ]

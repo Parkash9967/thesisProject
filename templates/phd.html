@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+ {% block head %}
+{% endblock  %}
 
-    <title>Title</title>
-     <meta charset="UTF-8">
- <meta charset="utf-8">
-</head>
-<body>
-<div>
 {% block list %}
-<div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#C5C5C5 ">
+
+<div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#33332d ">
+    <h3 style="color: #FFFFFF"> List of Scholarships for PHD</h3>
+                  <hr style="border: 2px solid white">
     <form action="">
  {% csrf_token %}
           {% for scholars in data %}
-              <div class="logo3" style="border: 3px solid white; text-align: center; background-color: skyblue">
+              <div class="logo3" style="border: 1px solid black; text-align: center; background-color: white">
                  <h1 style="cursor: pointer">{{scholars.scholarship_name}}</h1>
               <h3> Program </h3>
               <h2>{{scholars.scholarship_program}}</h2>
@@ -32,15 +28,15 @@
     <ul class="pagination">
 {% if data.has_previous %}
     <li class="page-item">
-     <a href="?page=1" class="page-link"><< First</a>
+     <a style="color: green" href="?page=1" class="page-link"><< First</a>
     </li>
      <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.previous_page_number }}" class="page-link">Previous</a>
+     <a style="color: green" href="{% url 'phd' %}?page={{ data.previous_page_number }}" class="page-link">Previous</a>
     </li>
 {% endif %}
 {% if data.has_next %}
     <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.next_page_number }}" class="page-link">Next >></a>
+     <a style="color: green" href="{% url 'phd' %}?page={{ data.next_page_number }}" class="page-link">Next >></a>
     </li>
 {% endif %}
 </ul>
@@ -104,8 +100,5 @@ width: 100%" class="footer-basic">
   <!-- Copyright -->
 </footer>
     </div>
-{% endblock %}
     </div>
-</div>
-</body>
-</html>
+{% endblock %}

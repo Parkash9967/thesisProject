@@ -8,43 +8,24 @@
  <meta charset="utf-8">
 </head>
 <body>
-<div>
 {% block list %}
-<div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#C5C5C5 ">
+<div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#C5C5C5  ">
+ <h1>Top 10 Scholarships</h1>
     <form action="">
  {% csrf_token %}
           {% for scholars in data %}
-              <div class="logo3" style="border: 3px solid white; text-align: center; background-color: skyblue">
-                 <h1 style="cursor: pointer">{{scholars.scholarship_name}}</h1>
-              <h3> Program </h3>
-              <h2>{{scholars.scholarship_program}}</h2>
+              <div class="logo3" style="border: 3px solid white; text-align: left; background-color: skyblue">
+                 <h1 style="cursor: pointer">#{{scholars.name}}</h1>
+              <h3 style="margin-top: 5px; margin-bottom: 10px"> Program </h3>
+              <h2>{{scholars.program}}</h2>
               <h3> Country </h3>
               <h2> {{scholars.scholarship_country}}</h2>
-              <h3> Dead Line </h3>
-              <h2 >{{scholars.scholarship_deadline}}</h2>
-              <h3> University </h3>
-              <h2> {{scholars.scholarship_university}}</h2>
-              <h3> Starting Date </h3>
-              <h2 >{{scholars.scholarship_Start_date}}</h2>
-              <li style=""><a href="{{scholars.scholarship_url}}" target="_blank"> See More</a></li>
-               </div>
+              <li  style=""><a href="{{scholars.url}}" target="_blank"> See More</a></li>
+              </div>
            {% endfor %}
-    <ul class="pagination">
-{% if data.has_previous %}
-    <li class="page-item">
-     <a href="?page=1" class="page-link"><< First</a>
-    </li>
-     <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.previous_page_number }}" class="page-link">Previous</a>
-    </li>
-{% endif %}
-{% if data.has_next %}
-    <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.next_page_number }}" class="page-link">Next >></a>
-    </li>
-{% endif %}
-</ul>
+
     </form>
+</div>
 {% endblock %}
 {% block footer %}
 <div style="border: 2px solid gray;position: relative;
@@ -90,7 +71,7 @@ width: 100%" class="footer-basic">
   </div>
   <!-- Grid container -->
 <ul class="list-inline">
-                <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Contact Us</a></li>
@@ -105,7 +86,5 @@ width: 100%" class="footer-basic">
 </footer>
     </div>
 {% endblock %}
-    </div>
-</div>
 </body>
 </html>

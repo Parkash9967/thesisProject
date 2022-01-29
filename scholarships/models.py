@@ -12,3 +12,10 @@ class Scholarships(models.Model):
     scholarship_deadline = models.CharField(max_length=100, blank=True)
     scholarship_country = models.CharField(max_length=100, blank=True)
     scholarship_Start_date = models.CharField(max_length=100, blank=True)
+
+
+class Top10(models.Model):
+    name = models.CharField(max_length=100, blank=True)
+    url = models.CharField(max_length=100, blank=True)
+    program = models.CharField(max_length=100, blank=True)
+    scholarship_country = models.CharField(max_length=100, blank=True)

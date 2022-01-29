@@ -1,25 +1,19 @@
 {% extends 'base.html' %}
+ {% block head %}
+{% endblock  %}
 {% block body %}
-    <div style=" overflow: auto">
-<img style="" src="/static/img/output.png" class="logo" alt="">
-    <div class="logo2"><h1>Be a scholar to bright the future</h1> </div>
-   <div id="gradient"></div>
-<div class="content">
-    <h2>
-        Find scholarships here.!
-    </h2>
-<p style="color:#500909;">
-    ScholarshipHub is a platform where you can find easily the best scholarships across the world, here you can search scholarships
-    by fields by name of scholarship or by country in which you are interest. Please help us by sharing this site with your friends. Thanks!
-</p>
-
- <div class="container1">
-        <a   class="btn btn-warning button1" href="{% url 'home' %}" role="button">Go To Home</a>
-</div>
-</div>
+    <div style="border: 5px solid black; width: auto; height: auto; padding-bottom: 25px; padding-top: 25px;
+     text-align: center; background-color:#2f8eb6;">
+ {% for scholarships in data %}
+    <h3>{{ scholarships.scholarship_name }}</h3>
+     <h5>{{ scholarships.scholarship_program }}</h5>
+     <h5>{{ scholarships.scholarship_country }}</h5>
+      <h5>{{ scholarships.scholarship_university }}</h5>
+      <h5>{{ scholarships.scholarship_Start_date}}</h5>
+      <h5>{{ scholarships.scholarship_deadline }}</h5>
+    {% endfor %}
     </div>
- {% endblock %}
-
+{% endblock %}
 {% block footer %}
 <div style="border: 2px solid gray;position: fixed;
   left: 0;
@@ -64,14 +58,14 @@ width: 100%" class="footer-basic">
   </div>
   <!-- Grid container -->
 <ul class="list-inline">
-                <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Contact Us</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
-   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
     <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
   </div>

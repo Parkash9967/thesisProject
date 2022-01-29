@@ -1,22 +1,237 @@
 {% extends 'base.html' %}
+ {% block body %}
+     <div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color: #C5C5C5 ">
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade"
+  data-mdb-ride="carousel"
+>
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img style="height: 500px; width: 100%; opacity: 0.7;"
+        src="/static/img/Full-Scholarship-in-USA-1.jpg"
+
+        alt="Transparent-image"
+      />
+
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img style="height: 500px; width: 100%; opacity: 0.7;"
+        src="/static/img/study-in-arab.png"
+         alt="Transparent-image"
+      />
+
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img style="height: 500px; width: 100%; opacity: 0.7;"
+        src="/static/img/europe.jpg"
+        alt="Transparent-image"
+      />
+    </div>
+  </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+          <div style="margin-top: 15px;">
+        <p style="color: black; text-align: left; font-family: Luminari,cursive">
+            ScholarshipHub is a platform where you can find easily the best scholarships across the world, here you can search scholarships
+    by fields by name of scholarship or by country in which you are interest. Please help us by sharing this site with your friends. Thanks!
+        </p>
+    </div>
+        <div style="padding-bottom: 30px">
+     <h1 >welcome to home page</h1>
+             </div>
+
+       <div>
+
+         <img style=" height: 500px; width: 50%; right: -50%;" src="/static/img/div1.jpg" alt="">
+        <h4> Scholarships For Bachelors</h4>
+       <div style="border: 1px solid black;">
+           {% for bachelors in data  %}
+               <div style="border: 1px solid black; padding-bottom: 35px">
+               <a style="  font-size: 40px;" href="{{ bachelors.scholarship_url }}">{{ bachelors.scholarship_name }}</a>
+               <h6>{{ bachelors.scholarship_university}}</h6>
+               <h6>{{ bachelors.scholarship_country}}</h6>
+               <h6>{{ bachelors.scholarship_Start_date}}</h6>
+               </div>
+           {% endfor %}
+        <a   class="" href="{% url 'bachelor' %}" role="button">See All</a>
+       </div>
+       </div>
+
+       <div style=" ">
+<h4> Scholarships For Masters</h4>
+         <img style=" height: 500px; width: 50%; right: -50%;" src="/static/img/div2.jpg" alt="">
+          <div style="border: 1px solid black;">
+           {% for bachelors in data2  %}
+               <div style="border: 1px solid black">
+               <a style="  font-size: 40px;" href="{{ bachelors.scholarship_url }}">{{ bachelors.scholarship_name }}</a>
+               <h6>{{ bachelors.scholarship_university}}</h6>
+               <h6>{{ bachelors.scholarship_country}}</h6>
+               <h6>{{ bachelors.scholarship_Start_date}}</h6>
+               </div>
+           {% endfor %}
+          <a class="" href="{% url 'master' %}" role="button">See All</a>
+       </div>
+
+   </div>
+      <div style=" ">
+       <h4> Scholarships For PHD</h4>
+         <img style=" height: 500px; width: 50%; right: -50%;" src="/static/img/div3.webp" alt="">
+           <div style="border: 1px solid black;">
+           {% for bachelors in data3  %}
+               <div style="border: 1px solid black">
+               <a style="  font-size: 40px;" href="{{ bachelors.scholarship_url }}">{{ bachelors.scholarship_name }}</a>
+               <h6>{{ bachelors.scholarship_university}}</h6>
+               <h6>{{ bachelors.scholarship_country}}</h6>
+               <h6>{{ bachelors.scholarship_Start_date}}</h6>
+               </div>
+           {% endfor %}
+           <a class="" href="{% url 'phd' %}" role="button">See All</a>
+       </div>
+   </div>
+        <div style=" ">
+        <h4> Scholarships search by Country</h4>
+         <img style=" height: 500px; width: 50%; right: -50%;" src="/static/img/images.jfif" alt="">
+               <form action="{% url 'home' %}" method='POST'>
+     {% csrf_token %}
+ <div   class="container">
+      <div  class="select-box"><label for="country"></label><select name="country" id="country">
+    <option selected>choose a country :</option>
+  <option value="Study in: USA"> USA</option>
+  <option value="Study in: Germany"> Germany</option>
+          <option value="Study in: Italy"> Italy</option>
+          <option value="Study in: Australia"> Australia</option>
+          <option value="Study in: Canada"> Canada</option>
+          <option value="Study in: New Zealand"> New Zealand</option>
+          <option value="Study in: Netherlands"> Netherlands</option>
+
+</select><br>
+          <br>
+    <button  type="submit" class="btn btn-primary btn-sm" >submit</button>
+   </div>
+ </div>
+</form>
+           <div style="border: 1px solid black;padding-bottom: 35px">
+           {% for bachelors in data4  %}
+               <div style="border: 1px solid black">
+               <a style="  font-size: 40px;" href="{{ bachelors.scholarship_url }}">{{ bachelors.scholarship_name }}</a>
+               <h6>{{ bachelors.scholarship_university}}</h6>
+               <h6>{{ bachelors.scholarship_country}}</h6>
+               <h6>{{ bachelors.scholarship_Start_date}}</h6>
+               </div>
+           {% endfor %}
+       </div>
+   </div>
+     </div>
+
+ {% endblock %}
 {% block footer %}
-<div class="footer-basic">
-        <footer>
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a>
-                <a href="#"><i class="icon ion-social-github"></i></a>
-                <a href="#"><i class="icon ion-social-twitter"></i></a>
-                <a href="#"><i class="icon ion-social-facebook"></i></a>
-                <a href="#"><i class="icon ion-social-google"></i></a>
-            </div>
-            <ul class="list-inline">
+<div style="border: 2px solid gray;position: relative;
+  left: 0;
+  bottom: 0;
+width: 100%" class="footer-basic">
+ <footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+<ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Contact Us</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">ScholarshipHub © 2021</p>
-        </footer>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
+  </div>
+  <!-- Copyright -->
+</footer>
     </div>
 {% endblock %}
 
