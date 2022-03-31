@@ -10,12 +10,14 @@
 <body>
 <div>
 {% block list %}
-<div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#C5C5C5 ">
+<div style="border: 5px solid black; width: auto; text-align: center;padding-top: 50px; padding-left: 300px;padding-right: 300px;background-color:#2f8eb6 ">
+     <h2 style="color: #FFFFFF"> List of Scholarships and Grants</h2>
+                  <hr style="border: 2px solid white">
     <form action="">
  {% csrf_token %}
           {% for scholars in data %}
-              <div class="logo3" style="border: 3px solid white; text-align: center; background-color: skyblue">
-                 <h1 style="cursor: pointer">{{scholars.scholarship_name}}</h1>
+              <div class="logo3" style="border: 3px solid black; text-align: center; background-color: white">
+                 <a style=" font-size: 40px;" href="{{ scholars.scholarship_url }}" target="_blank">{{ scholars.scholarship_name }}</a>
               <h3> Program </h3>
               <h2>{{scholars.scholarship_program}}</h2>
               <h3> Country </h3>
@@ -29,18 +31,33 @@
               <li style=""><a href="{{scholars.scholarship_url}}" target="_blank"> See More</a></li>
                </div>
            {% endfor %}
-    <ul class="pagination">
+      <ul class="pagination">
 {% if data.has_previous %}
-    <li class="page-item">
-     <a href="?page=1" class="page-link"><< First</a>
+     <li class="page-item" style=" background-color: #36abf4;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+">
+     <a style="color: white" href="?page=1" class="button"><< First</a>
     </li>
-     <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.previous_page_number }}" class="page-link">Previous</a>
+      <li class="page-item" style=" background-color: #36abf4;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+">
+     <a style="color: white" href="{% url 'scholarships' %}?page={{ data.previous_page_number }}" class=".btn-success">Previous</a>
     </li>
 {% endif %}
 {% if data.has_next %}
-    <li class="page-item">
-     <a href="{% url 'scholarships' %}?page={{ data.next_page_number }}" class="page-link">Next >></a>
+    <li class="page-item" style=" background-color: #36abf4;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+">
+     <a style="color: white" href="{% url 'scholarships' %}?page={{ data.next_page_number }}" class=".btn-success">Next >></a>
     </li>
 {% endif %}
 </ul>
@@ -92,9 +109,9 @@ width: 100%" class="footer-basic">
 <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

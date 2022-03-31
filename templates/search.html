@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
- {% block head %}
-{% endblock  %}
 {% block body %}
-    <div style="border: 5px solid black; width: auto; height: auto; padding-bottom: 25px; padding-top: 25px;
+    <style>
+    body{
+        background-image: none;
+        background-color:#2f8eb6;
+    }
+    </style>
+    <div class="div" style=" width: auto; height: 100%; padding-bottom: 25px; padding-top: 25px;
      text-align: center; background-color:#2f8eb6;">
  {% for scholarships in data %}
-    <h3>{{ scholarships.scholarship_name }}</h3>
+    <a style=" font-size: 40px; color: #FFFFFF" href="{{ scholarships.scholarship_url }}" target="_blank">{{ scholarships.scholarship_name }}</a>
      <h5>{{ scholarships.scholarship_program }}</h5>
      <h5>{{ scholarships.scholarship_country }}</h5>
       <h5>{{ scholarships.scholarship_university }}</h5>
@@ -58,11 +62,11 @@ width: 100%" class="footer-basic">
   </div>
   <!-- Grid container -->
 <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

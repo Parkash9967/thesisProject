@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+ {% block head %}
+{% endblock  %}
+{% block body %}
+   <div style="border: 5px solid black; width: auto; text-align: center;padding: 35px;background-color:#2f8eb6 ; overflow: auto">
+         <img style="height: 500px; width: 100%;padding-bottom: 25px"src="/static/img/international-students.jpg" alt="">
+               <form action="{% url 'countries' %}" method='POST'>
+     {% csrf_token %}
+ <div   class="container">
+      <div  class="select-box"><label for="country"></label><select name="country" id="country" style="appearance: none ;
+        outline: 0;
+        background: green;
+        width: 250px;
+        height: 100%;
+        color: white;
+        cursor: pointer;
+        border: 1px solid black;
+        text-align: center;
+        border-radius: 3px;">
+    <option selected>choose a country :</option>
+          <option value="Study in: USA"> USA</option>
+          <option value="Study in: Germany"> Germany</option>
+          <option value="Study in: Italy"> Italy</option>
+          <option value="Study in: Australia"> Australia</option>
+          <option value="Study in: Canada"> Canada</option>
+          <option value="Study in: New Zealand"> New Zealand</option>
+          <option value="Study in: Netherlands"> Netherlands</option>
+          <option value="Study in: Finland"> Finland</option>
+          <option value="Study in: Switzerland"> Switzerland</option>
+          <option value="Study in: Turkey"> Turkey</option>
+          <option value="Study in: France"> France</option>
+          <option value="Study in: London, UK"> London, UK</option>
+          <option value="Study in: China"> China</option>
+          <option value="Study in: Slovakia"> Slovakia</option>
+          <option value="Study in: Japan"> Japan</option>
+          <option value="Hungary"> Hungary</option>
+          <option value="Study in: Africa"> Africa</option>
+          <option value="Study in: Denmark"> Denmark</option>
+          <option value="Study in: Any Country (online)"> Any Country</option>
+
+</select><br>
+          <br>
+    <button  type="submit" class="btn btn-primary btn-sm" >submit</button>
+   </div>
+ </div>
+</form>
+     <div style="border: 1px solid black;padding-left: 300px;padding-right: 300px;">
+           {% for scholarships in data  %}
+               <div style="border: 1px solid black; text-align: center; background-color: white">
+               <a style="  font-size: 40px;" href="{{ scholarships.scholarship_url }}" target="_blank">{{ scholarships.scholarship_name }}</a>
+               <h6>{{ scholarships.scholarship_university}}</h6>
+               <h6>{{ scholarships.scholarship_country}}</h6>
+               <h6>{{ scholarships.scholarship_Start_date}}</h6>
+               </div>
+           {% endfor %}
+       </div>
+    </div>
+{% endblock %}
+{% block footer %}
+<div style="border: 2px solid gray;position: relative;
+  left: 0;
+  bottom: 0;
+width: 100%" class="footer-basic">
+ <footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+<ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
+                <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+            </ul>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+    </div>
+{% endblock %}

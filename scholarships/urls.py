@@ -13,6 +13,9 @@ urlpatterns = [
     path('bachelor/', views.bachelor, name='bachelor'),
     path('master/', views.master, name='master'),
     path('phd/', views.phd, name='phd'),
-    path('services/', views.services, name='services')
-
+    path('services/', views.services, name='services'),
+    path('countries/', views.countries, name='countries'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('privacy/', views.privacy, name='privacy')
 ]

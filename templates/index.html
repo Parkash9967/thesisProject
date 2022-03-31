@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% block body %}
-    <div style=" overflow: auto">
-<img style="" src="/static/img/output.png" class="logo" alt="">
+
+    <div style="  background-image:  url('/static/img/book.jpg');" xmlns="http://www.w3.org/1999/html">
+
     <div class="logo2"><h1>Be a scholar to bright the future</h1> </div>
    <div id="gradient"></div>
 <div class="content">
-    <h2>
-        Find scholarships here.!
-    </h2>
-<p style="color:#500909;">
-    ScholarshipHub is a platform where you can find easily the best scholarships across the world, here you can search scholarships
-    by fields by name of scholarship or by country in which you are interest. Please help us by sharing this site with your friends. Thanks!
-</p>
 
+ <div class="logo3"><p style=";
+    text-align: center;
+     color: white;
+     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    background-color: transparent;
+   ">
+            ScholarshipHub is a platform where you can find easily the best scholarships across the world.Please help us by sharing this site with your friends. Thanks!
+        </p> </div>
  <div class="container1">
         <a   class="btn btn-warning button1" href="{% url 'home' %}" role="button">Go To Home</a>
 </div>
+
 </div>
     </div>
  {% endblock %}
 
 {% block footer %}
 <div style="border: 2px solid gray;position: fixed;
+height: auto;
   left: 0;
   bottom: 0;
 width: 100%" class="footer-basic">
@@ -31,33 +35,29 @@ width: 100%" class="footer-basic">
     <!-- Section: Social media -->
     <section class="mb-4">
       <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/omparkash.ladhani" role="button"
+        target="_blank"><i class="fab fa-facebook-f"></i
       ></a>
 
       <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
+      <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/Parkashladhani" role="button"
+        target="_blank" ><i class="fab fa-twitter"></i
       ></a>
 
-      <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
 
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/ladhani_parkash07/" role="button"
+        target="_blank" ><i class="fab fa-instagram"></i
       ></a>
 
       <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/om-parkash-772bbb200/" role="button"
+         target="_blank"><i class="fab fa-linkedin-in"></i
       ></a>
 
       <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
+      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/Parkash9967" role="button"
+         target="_blank"><i class="fab fa-github"></i
       ></a>
     </section>
     <!-- Section: Social media -->
@@ -66,9 +66,9 @@ width: 100%" class="footer-basic">
 <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'home' %}">Home</a></li>
                 <li class="list-inline-item"><a href="{% url 'services' %}">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Contact Us</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">

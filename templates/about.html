@@ -1,32 +1,24 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <title>Title</title>
-     <meta charset="UTF-8">
- <meta charset="utf-8">
-</head>
-<body>
-{% block list %}
-<div style="border: 5px solid black; width: auto; text-align: center;padding-left: 300px;padding-right: 300px;background-color:#2f8eb6 ">
- <h2 style="color: #FFFFFF; padding-top: 50px; "> List of Top 10  Scholarships</h2>
-                  <hr style="border: 2px solid white">
-    <form action="">
- {% csrf_token %}
-          {% for scholars in data %}
-              <div class="logo3" style="border: 3px solid black; text-align: center; background-color: white">
-{#                 <h1 style="cursor: pointer">#{{scholars.name}}</h1>#}
-                  <a style=" font-size: 40px;" href="{{scholars.url}}" target="_blank">{{scholars.name }}</a>
-              <h3 style="margin-top: 5px; margin-bottom: 10px"> Program </h3>
-              <h2>{{scholars.program}}</h2>
-              <h3> Country </h3>
-              <h2> {{scholars.scholarship_country}}</h2>
-              <li  style=""><a href="{{scholars.url}}" target="_blank"> See More</a></li>
-              </div>
-           {% endfor %}
-
-    </form>
+ {% block head %}
+{% endblock  %}
+{% block body %}
+<div style=" width: 100%; height: auto; text-align: center;padding: 35px;background-color:#2f8eb6 ; overflow: auto">
+<div style="  padding: 150px;
+  text-align: center;
+  background-color: gray;
+  color: white;">
+  <h1>About Us Page</h1>
+  <p>This website is all about to help students to get scholarships around the world</p>
+</div>
+<div style="padding-top: 20px; text-align: center">
+    <img style="height: 300px; width: 300px" src=/static/img/omparkash-pic.jpeg>
+    <div style="color: #FFFFFF">
+    <h1>Om Parkash</h1>
+    <h3>Developer</h3>
+    <h3>Bsc Computer science</h3>
+        <h3>omparkashladhani@gmail.com</h3>
+        </div>
+</div>
 </div>
 {% endblock %}
 {% block footer %}
@@ -80,7 +72,7 @@ width: 100%" class="footer-basic">
                 <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
-   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
     <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
   </div>
@@ -88,5 +80,3 @@ width: 100%" class="footer-basic">
 </footer>
     </div>
 {% endblock %}
-</body>
-</html>

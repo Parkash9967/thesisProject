@@ -3,7 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class Scholarships(models.Model):
     scholarship_name = models.CharField(max_length=100, blank=True)
     scholarship_url = models.CharField(max_length=100, blank=True)
@@ -19,3 +18,9 @@ class Top10(models.Model):
     url = models.CharField(max_length=100, blank=True)
     program = models.CharField(max_length=100, blank=True)
     scholarship_country = models.CharField(max_length=100, blank=True)
+
+
+class Contact(models.Model):
+    full_name = models.CharField(max_length=100, blank=True)
+    email = models.CharField(max_length=100, blank=True)
+    message = models.CharField(max_length=500, blank=True)

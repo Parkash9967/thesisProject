@@ -1,32 +1,30 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% block body %}
+<div style="border: 5px solid black; width: auto;padding-left: 300px;padding-right: 300px; text-align: center;background-color:#2f8eb6 ; overflow: auto">
+    <br>
+<h1 style="color: white">Contact Us Here</h1>
 
-    <title>Title</title>
-     <meta charset="UTF-8">
- <meta charset="utf-8">
-</head>
-<body>
-{% block list %}
-<div style="border: 5px solid black; width: auto; text-align: center;padding-left: 300px;padding-right: 300px;background-color:#2f8eb6 ">
- <h2 style="color: #FFFFFF; padding-top: 50px; "> List of Top 10  Scholarships</h2>
-                  <hr style="border: 2px solid white">
-    <form action="">
- {% csrf_token %}
-          {% for scholars in data %}
-              <div class="logo3" style="border: 3px solid black; text-align: center; background-color: white">
-{#                 <h1 style="cursor: pointer">#{{scholars.name}}</h1>#}
-                  <a style=" font-size: 40px;" href="{{scholars.url}}" target="_blank">{{scholars.name }}</a>
-              <h3 style="margin-top: 5px; margin-bottom: 10px"> Program </h3>
-              <h2>{{scholars.program}}</h2>
-              <h3> Country </h3>
-              <h2> {{scholars.scholarship_country}}</h2>
-              <li  style=""><a href="{{scholars.url}}" target="_blank"> See More</a></li>
-              </div>
-           {% endfor %}
+    <div style="border: 1px solid gray;height: 660px;  text-align: left; background-color: white;padding-left: 10px;padding-right: 10px; padding-top: 30px">
 
-    </form>
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+     <label for="exampleFormText">Full Name</label>
+   <input type="text" class="form-control" id="exampleFormText" name="full_name" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+        <div class="mb-3">
+     <label for="exampleFormControlTextarea1">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+ <br>
 </div>
 {% endblock %}
 {% block footer %}
@@ -80,7 +78,7 @@ width: 100%" class="footer-basic">
                 <li class="list-inline-item"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
   <!-- Copyright -->
-   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
     <a class="text-white" href="{% url 'index' %}">ScholarshipHub</a>
   </div>
@@ -88,5 +86,3 @@ width: 100%" class="footer-basic">
 </footer>
     </div>
 {% endblock %}
-</body>
-</html>

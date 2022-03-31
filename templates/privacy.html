@@ -4,59 +4,30 @@
 
 {% block list %}
 
-<div style="border: 5px solid black; width: auto; text-align: center;padding-left: 300px;padding-right: 300px;background-color:#2f8eb6 ">
- <h2 style="color: #FFFFFF; padding-top: 50px; "> List of Bachelors Scholarships</h2>
-                  <hr style="border: 2px solid white">
-    <form action="">
- {% csrf_token %}
-           {% for scholars in data %}
-              <div class="logo3" style="border: 1px solid black; text-align: center; background-color: white">
-
-                  <a style=" font-size: 40px;" href="{{ scholars.scholarship_url }}" target="_blank">{{ scholars.scholarship_name }}</a>
-              <h3> Program </h3>
-              <h2>{{scholars.scholarship_program}}</h2>
-              <h3> Country </h3>
-              <h2> {{scholars.scholarship_country}}</h2>
-              <h3> Deadline </h3>
-              <h2 >{{scholars.scholarship_deadline}}</h2>
-              <h3> University </h3>
-              <h2> {{scholars.scholarship_university}}</h2>
-              <h3> Starting Date </h3>
-              <h2 >{{scholars.scholarship_Start_date}}</h2>
-              <li style=""><a href="{{scholars.scholarship_url}}" target="_blank"> See More</a></li>
-               </div>
-           {% endfor %}
-       <ul class="pagination">
-{% if data.has_previous %}
-     <li class="page-item" style=" background-color: #36abf4;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-">
-     <a style="color: white" href="?page=1" class="button"><< First</a>
-    </li>
-      <li class="page-item" style=" background-color: #36abf4;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-">
-     <a style="color: white" href="{% url 'bachelor' %}?page={{ data.previous_page_number }}" class=".btn-success">Previous</a>
-    </li>
-{% endif %}
-{% if data.has_next %}
-    <li class="page-item" style=" background-color: #36abf4;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-">
-     <a style="color: white" href="{% url 'bachelor' %}?page={{ data.next_page_number }}" class=".btn-success">Next >></a>
-    </li>
-{% endif %}
-</ul>
-    </form>
+<div style="border: 5px solid black; width: auto; height: auto; text-align: center;padding-left: 300px;padding-right: 300px;background-color:#2f8eb6;overflow: auto " >
+<div class="logo3" style="border: 1px solid gray;height: 660px;  text-align: left; background-color: white;padding-left: 10px;padding-right: 10px; padding-top: 30px">
+    <div style="border: 5px solid gray; height: 600px; padding-top: 30px;padding-left: 10px;padding-right: 10px">
+    <h1>Privacy Policy</h1>
+    <p>The privacy of visitors to scholashipHub.com is important to us.</p>
+    <p>
+        At scholashipHub.com, we recognize that privacy of your personal information is important. Below is a list of what types of personal information we receive
+        and collect when you use scholashipHub.com, how and when it is used, and how we safeguard your information. We never share or sell your personal information
+        to third parties. If you have any concerns, please contact us at privacy[at]scholashipHub.com.
+    </p>
+        <h3>COOKIES</h3>
+        <p>
+            Cookies are small text files that are used to store small pieces of information. The cookies are stored on your device when the website is loaded on your browser.
+            These cookies help us make the website function properly,
+            make the website more secure, provide better user experience, and understand how the website performs and to analyze what works and where it needs improvement.
+        </p>
+        <h3>Necessary cookies</h3>
+        <p>
+            Necessary cookies are absolutely essential for the website to function properly. We use necessary cookies to ensure basic functionalities and security features of the website.
+            These cookies do not store any personal information.
+        </p>
+        </div>
+</div>
+</div>
 {% endblock %}
 {% block footer %}
 <div style="border: 2px solid gray;position: relative;
@@ -115,6 +86,5 @@ width: 100%" class="footer-basic">
   </div>
   <!-- Copyright -->
 </footer>
-    </div>
     </div>
 {% endblock %}

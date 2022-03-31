@@ -27,6 +27,9 @@
   rel="stylesheet"
 />
 
+<link rel="shortcut icon" type="x-icon" href="/static/img/logo.png">
+
+
 <!-- MDB -->
 <script
   type="text/javascript"
@@ -55,22 +58,25 @@
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'scholarships' %}">Lists</a>
+          <a class="nav-link" href="{% url 'scholarships' %}">Scholarships</a>
         </li>
      <li class="nav-item">
           <a class="nav-link" href="{% url 'top10' %}">Top10</a>
         </li>
               <li class="nav-item">
-          <a class="nav-link" href="{% url 'services' %}" target="_blank">Services</a>
+          <a class="nav-link" href="{% url 'services' %}" >Services</a>
         </li>
               <li class="nav-item">
-          <a class="nav-link" href="{% url 'bachelor' %}" target="_blank">Bachelors</a>
+          <a class="nav-link" href="{% url 'bachelor' %}" >Bachelors</a>
         </li>
            <li class="nav-item">
-          <a class="nav-link" href="{% url 'master' %}" target="_blank">Masters</a>
+          <a class="nav-link" href="{% url 'master' %}" >Masters</a>
         </li>
            <li class="nav-item">
-          <a class="nav-link" href="{% url 'phd' %}" target="_blank">Phd</a>
+          <a class="nav-link" href="{% url 'phd' %}" >Phd</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="{% url 'countries' %}" >Countries</a>
         </li>
       </ul>
          <form class="d-flex" action="{% url 'search' %}">
@@ -95,6 +101,8 @@
  {% block body %}
  {% endblock %}
 </div>
+ {% block login %}
+    {% endblock %}
 {% block footer %}
 {% endblock %}
 </body>
